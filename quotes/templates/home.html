@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if ticker %}
+	{{ ticker }}
+{% endif %}
+
+{% if api %}
+	{% if api == "Error..." %}
+		There was a problem with your ticker symbol, please try again...
+	{% else %}
+		<h1>{{api.ticker}}</h1><br/>
+		Price: ${{api.results.0.c}}<br/>
+		Open price: ${{api.results.0.o}}<br/>
+		Trading volume: {{api.results.0.vw}}<br/>	
+	{% endif %}
+{% endif %}
+
+{% endblock %}
